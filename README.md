@@ -60,6 +60,11 @@
   - PR の書き方は[こちら](https://hydrakecat.hatenablog.jp/entry/2018/06/30/%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%E3%81%97%E3%81%A6%E3%82%82%E3%82%89%E3%81%84%E3%82%84%E3%81%99%E3%81%84PR%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9)を参考に
 - レビューを実施した人がマージ
 
+## 開発時のドキュメント
+
+- [interface設計書](https://www.notion.so/plantsprogramming/interface-538d22eee8b446c98a0736416d471bc6)
+- [画面詳細設計書](https://www.notion.so/plantsprogramming/b2bd4df7a4ce40509645c6e8659993fe)
+
 ## フロントエンド
 
 React.js\* TypeScript を利用した Web アプリケーションです
