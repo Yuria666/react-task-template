@@ -11,4 +11,6 @@ RUN apk add freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-
 RUN docker-php-ext-install pdo pdo_mysql gd
 EXPOSE 8000
 
+CMD php artisan serve --host=0.0.0.0 --port=8000
+
 # CMD sh ./entrypoint.sh

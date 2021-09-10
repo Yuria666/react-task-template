@@ -1,14 +1,14 @@
 version: "3.7"
 
 services:
-  next:
+  client:
     # コンテナビルド時(立ち上げ時)の情報を記載
     build:
       context: ./src/client
       # dockerファイルの場所を記載
       dockerfile: ./Dockerfile
     # コンテナ名を記載
-    container_name: next
+    container_name: client
     # ポート番号を指定
     ports:
       - 3000:3000
@@ -17,8 +17,6 @@ services:
     # 自分の現在のディレクトリをコンテナ内の/app/nextに紐付け
     volumes:
       - ./src/client:/usr/src/client
-    # コンテナ立ち上げ時に実行するコマンドを記載(localhostの立ち上げをしている)
-    command: "yarn dev"
   laravel:
     build:
       context: ./src/laravel
