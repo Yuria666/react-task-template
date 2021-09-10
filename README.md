@@ -1,81 +1,68 @@
-# laravel-study
-laravel学習用のリポジトリです。
+# react-task-template
 
-## スタック
+フロントエンドフレームワーク課題のボイラーテンプレートです。
+このファイルを手元の PC に取り込んで、課題を実施するようにしてください。
 
-- Next.js
-- laravel
-- mysql
+## 全体構成
 
+- フロントエンド
+  - React.js
+- バックエンド
+  - Laravel API
+- DB
+  - MySQL
+
+全てコンテナ環境で稼働できるように構成しています。
+今回の課題ではこの構成のフロントエンド開発を担当してもらいます。
+
+![課題の全体構成](./task_architecture.png)
 
 ## 環境構築
 
+- `node.js`のインストール
+- `docker`のインストール
+- `src/laravel/.env`に下記リンクの環境変数を上書きする
+  - https://www.notion.so/plantsprogramming/bd282fcbc78045d8a4488dde4c8cb312#98ffd52be53947b090346637bb32dde1
 - `docker-compose.yml`のあるディレクトリで下記コマンド実施
   - `docker-compose up -d`
-- Laravelコンテナ内でマイグレーションの実行し、テーブル作成
+- Laravel コンテナ内でマイグレーションの実行し、テーブル作成
   - `docker exec -it laravel bash`
   - `php artisan migrate`
 
+※Laravel に関するライブラリのインストールは不要です。
+
 ## フロントエンド
 
-フロントエンド実装時に説明追加予定。
+React.js\* TypeScript を利用した Web アプリケーションです
+`src/client`配下がフロントエンドのディレクトリになります。
 
-## バックエンド
-
-
-## 開発について
-
-`リポジトリパターン`を採用しています。
-基本的なMVCパターンに則りつつ、DBの操作はすべて`Repository`を介する形として下さい。
-
+### ディレクトリ構成
 
 ```
-- `app`
-  - `Repositories`
-    - リポジトリファイル置き場。ここにinterfaceとDB操作のRepositoryファイルを実装する
-  - `Http`
-    - `Controllers`
-     - MVCのコントローラー。ここでリポジトリを注入して実装する。  
-       フォームリクエストなどを活用して実装すること。 
-  - `database`
-    - `Model`
-     - MVCのモデル。ここでテーブル定義などを変更する。
+- src
+  - pages
+    - ページコンポーネント置き場
+  - components/{コンポーネント単位}
+    - 各種コンポーネント置き場
+  - tests/{page区分}
+   - テスト用ファイル置き場
 ```
 
-### 認証周りの実装について
+### コンポーネント管理について
 
-認証のエラーステータスコードですが、第三者にIDの有無を判別させないために全て `404`で統一しています。
-認証周りの実装時にはこちらを考慮して実装を進めてください。
+コンポーネント管理に Atomic Design を採用しています。
+コンポーネントの粒度に合わせて、適切なディレクトリに格納していく形にしてください。
+
+※Atomic Design については[こちら](https://blog.spacemarket.com/code/atomic-design%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6react%E3%82%B3%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88%E3%82%92%E5%86%8D%E8%A8%AD%E8%A8%88%E3%81%97%E3%81%9F%E8%A9%B1/)を参照
 
 ### テストについて
 
-- テストファイルの確認は下記コマンドを実行。
-  - 全テスト実行:`./vendor/bin/phpunit` 
-  - テスト実行(ファイル指定):`./vendor/bin/phpunit tests/{Feature|Unit}/{file}`
-    - 実行したいファイルパスに適宜置き換えてください
+テストコードは全て tests ディレクトリに格納します。
 
-### DBへの接続方法
+## バックエンド
 
-- 下記コマンドでmysqlコンテナの接続を実施
-  - `docker exec -it mysql bash`
-  - ` mysql -u root -D laravel -p`
-    - パスワードは`password`
+Laravel を用いた API です。
+`src/laravel`配下がバックエンドのディレクトリになります。
 
-
-### API仕様書
-
-- `localhost:8002`にてSwaggerで確認できます
-- 編集時は`docker/swagger/openapi.yaml`を更新してください。
-
-### ER図
-
-* https://drive.google.com/file/d/1FzI5rkhQ2XojZsG_cOwo_cX9mjNNLa2_/view?usp=sharing
-
-※  今後`SchemaSpy`に移行予定
-
-## インフラ構成図
-
-* https://drive.google.com/file/d/1ypXRYEq2gLgfBhDosyF-B-b270yYl7BE/view?usp=sharing
-## アプリ要件
-
-* https://docs.google.com/spreadsheets/d/1M0_LW5xjfB24Ux3vLZKb43Ylr7rHeyUbCrGZyJWP5cg/edit#gid=523587681
+本課題では触ることはありませんが、最初の環境構築時に何点かセットアップが必要です。
+[環境構築](#環境構築)セクションを参考にセットアップしてください。
