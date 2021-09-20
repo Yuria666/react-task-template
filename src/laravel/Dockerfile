@@ -11,6 +11,4 @@ COPY --from=composer:1.8.6 /usr/bin/composer /usr/bin/composer
 # RUN apk add freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev
 # EXPOSE 8000
 
-# CMD php artisan serve --host=0.0.0.0 --port=8000
-
-# CMD sh ./entrypoint.sh
+CMD php artisan serve --host=0.0.0.0 --port=8000
