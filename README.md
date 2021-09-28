@@ -12,7 +12,7 @@
 - API を叩くという、非同期処理実装を理解している
 - git/github を利用したチーム開発手順を理解している
 - Jest を利用したテストコード実装ができる
-  - これは必須にしていないので、人によって定着するかが分かれる
+  - これは必須ではありません
 
 ## 全体構成
 
@@ -67,7 +67,7 @@
 
 ## 開発時のドキュメント
 
-- [interface設計書](https://www.notion.so/plantsprogramming/interface-538d22eee8b446c98a0736416d471bc6)
+- [interface 設計書](https://www.notion.so/plantsprogramming/interface-538d22eee8b446c98a0736416d471bc6)
 - [画面詳細設計書](https://www.notion.so/plantsprogramming/b2bd4df7a4ce40509645c6e8659993fe)
 
 ## フロントエンド

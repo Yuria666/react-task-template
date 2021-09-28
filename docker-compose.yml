@@ -12,8 +12,7 @@ services:
     # ポート番号を指定
     ports:
       - 3000:3000
-    # コンテナを立ち続けるようにする
-    tty: true
+
     # 自分の現在のディレクトリをコンテナ内の/app/nextに紐付け
     volumes:
       - ./src/client:/usr/src/client
@@ -24,15 +23,10 @@ services:
     container_name: laravel
     volumes:
       - ./src/laravel:/var/www/html
-    command: php artisan serve --host=0.0.0.0 --port=8000
     ports:
       - "8000:8000"
-  mail:
-    image: mailhog/mailhog
-    ports:
-      - 8025:8025
   mysql:
-    image: mysql:8.0
+    image: mysql:8.0.25
     container_name: mysql
     ports:
       - "3306:3306"
@@ -55,18 +49,3 @@ services:
       - 8050:80
     volumes:
       - /sessions
-  swagger-editor:
-    image: swaggerapi/swagger-editor
-    container_name: "swagger-editor"
-    ports:
-      - "8001:8080"
-  swagger-ui:
-    image: swaggerapi/swagger-ui
-    container_name: "swagger-ui"
-    ports:
-      - "8002:8080"
-    volumes:
-      - ./docker/swagger/openapi.yaml:/openapi.yaml
-    environment:
-      SWAGGER_JSON: /openapi.yaml
-      # API_URL: ""
